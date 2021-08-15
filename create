@@ -1,0 +1,22 @@
+CREATE TABLE genre (id SERIAL PRIMARY KEY, name_of_the_genre VARCHAR(30) NOT NULL UNIQUE);
+
+CREATE TABLE IF NOT EXISTS performers (id SERIAL PRIMARY KEY, executor VARCHAR(30) NOT NULL, genre_id INTEGER REFERENCES genre(id) NOT NULL);
+
+CREATE TABLE IF NOT EXISTS albums (id SERIAL PRIMARY KEY, perform_id INTEGER REFERENCES performers(id) NOT NULL, album_name VARCHAR(30) NOT NULL, album_release_year VARCHAR(30) NOT NULL);
+
+CREATE TABLE IF NOT EXISTS tracks (id SERIAL PRIMARY KEY, album_id INTEGER REFERENCES albums(id) NOT NULL, track_name VARCHAR(30) NOT NULL, track_duration VARCHAR(30) NOT NULL);
+
+ALTER TABLE performers DROP COLUMN genre_id;
+
+ALTER TABLE albums DROP COLUMN perform_id;
+
+CREATE TABLE IF NOT EXISTS artist_genre (perform_id INTEGER REFERENCES performers(id) NOT NULL, genre_id INTEGER REFERENCES genre(id) NOT NULL);
+
+CREATE TABLE IF NOT EXISTS artist_albums (id SERIAL PRIMARY KEY, perform_id INTEGER REFERENCES performers(id) NOT NULL, album_id INTEGER REFERENCES albums(id) NOT NULL);
+
+CREATE TABLE IF NOT EXISTS collection (id SERIAL PRIMARY KEY, collection_name VARCHAR(30) NOT NULL, collection_release_year VARCHAR(30) NOT NULL);
+
+CREATE TABLE IF NOT EXISTS collection_of_tracks (track_id INTEGER REFERENCES tracks(id) NOT NULL, collection_id INTEGER REFERENCES collection(id) NOT NULL);
+
+
+
