@@ -197,3 +197,24 @@ INSERT INTO collection_of_tracks(track_id, collection_id) VALUES(17,3);
 INSERT INTO collection_of_tracks(track_id, collection_id) VALUES(17,6);
 
 INSERT INTO collection_of_tracks(track_id, collection_id) VALUES(17,7);
+
+INSERT INTO artist_albums(perform_id, album_id) VALUES(8, 1);
+
+INSERT INTO artist_albums(perform_id, album_id) VALUES(7, 2);
+
+INSERT INTO artist_albums(perform_id, album_id) VALUES(9, 3);
+
+INSERT INTO artist_albums(perform_id, album_id) VALUES(2, 4);
+
+INSERT INTO artist_albums(perform_id, album_id) VALUES(10, 5);
+
+INSERT INTO artist_albums(perform_id, album_id) VALUES(11, 6);
+
+INSERT INTO artist_albums(perform_id, album_id) VALUES(12, 7);
+
+INSERT INTO artist_albums(perform_id, album_id) VALUES(5, 8);
+
+INSERT INTO tracks(album_id, track_name, track_duration) VALUES(8, 'its a beautiful day', '2.34');
+
+INSERT INTO artist_albums(perform_id, album_id) VALUES(5, 8);
+

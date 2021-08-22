@@ -18,5 +18,11 @@ CREATE TABLE IF NOT EXISTS collection (id SERIAL PRIMARY KEY, collection_name VA
 
 CREATE TABLE IF NOT EXISTS collection_of_tracks (track_id INTEGER REFERENCES tracks(id) NOT NULL, collection_id INTEGER REFERENCES collection(id) NOT NULL);
 
+ALTER TABLE tracks ALTER COLUMN track_duration SET DATA TYPE numeric;
+ОШИБКА:  столбец "track_duration" нельзя автоматически привести к типу numeric
+ПОДСКАЗКА:  Возможно, необходимо указать "USING track_duration::numeric".
+ALTER TABLE tracks ALTER COLUMN track_duration SET DATA TYPE numeric USING track_duration::numeric;
+
+ALTER TABLE artist_albums DROP COLUMN id;
 
 
